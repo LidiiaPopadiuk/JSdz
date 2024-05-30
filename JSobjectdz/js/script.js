@@ -3,12 +3,7 @@
 //1
 //Створіть об'єкт "bankAccount" з властивостями "ownerName", "accountNumber", "balance". Додайте до об'єкту метод "deposit", який дозволяє додавати гроші на рахунок, та метод "withdraw", який дозволяє знімати гроші з рахунку. Методи повинні зпрацьовувати при натисканні на кнопки “поповнити рахунок” та отримати ‘готівку’ відповідно. Після проведення операції виводити повідомлення про залишок на рахунку.
 
-let string = prompt(
-  `У вас на рахунку ${this.balance}. Хечете поповнити рахунок?`,
-  ""
-);
-let question = prompt("Введіть суму поповнення коштів");
-let newBalance;
+
 
 const bankAccount = {
   ownerName: "Ivan",
@@ -16,17 +11,41 @@ const bankAccount = {
   balance: 100000,
 
   deposit(add) {
-    if (string === true) {
-      newBalance === this.balance + add;
+    if (!isNaN(add)) {
+       this.balance += add;
+       alert(`У вас на рахунку ${this.balance}`);
     } else {
       alert("Дякую, що звернулися до нас");
     }
   },
-  // withdraw(rest) {
-  //   let string = prompt
-  // }
+  withdraw(amount) {
+    if (!isNaN(amount)) {
+      this.balance -= amount;
+      alert(`У вас на рахунку ${this.balance}`);
+    } else {
+      alert("Дякую, що звернулися до нас");
+    }
+  }
 };
-bankAccount.deposit();
+
+
+let string = confirm(
+  `У вас на рахунку ${bankAccount.balance}. Хечете поповнити рахунок?`
+);
+let question
+if(string === true) {
+  question = +prompt("Введіть суму поповнення коштів");
+  bankAccount.deposit(question);
+}
+
+let string2 = confirm(
+  `Чи бажаєте зняти кошти з рахунку?`
+)
+if(string2 === true) {
+  question = +prompt("Введіть суму зняття коштів");
+  bankAccount.withdraw(question);
+}
+
 
 //* 2
 //Створіть об'єкт "weather" з властивостями "temperature", "humidity", "windSpeed". Додайте до об'єкту метод, який повертає "true", якщо температура нижче 0 градусів Цельсія, та "false", якщо температура вище або рівна 0 градусів Цельсія. Температуру потрібно отримати з інпуту на сторінці. Якщо метод повернув "true" вивести повідомлення “температура нижче 0 градусів Цельсія” і навпаки
@@ -61,7 +80,7 @@ const user = {
       console.log('Перевірте gmail');
     }
 
-    if(this.password > 5) {
+    if(this.password.length > 4) {
       console.log('Операція пройшла успішно');
     } else {
       console.log('щось пішло не так');
