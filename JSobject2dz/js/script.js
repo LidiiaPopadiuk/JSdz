@@ -125,8 +125,8 @@ const randomObj = {
   premium: true,
   online: false,
 };
-const { name: name2, age, premium: premium2, online } = randomObj;
-console.log(name2);
+const { name: name4, age, premium: premium2, online } = randomObj;
+console.log(name4);
 console.log(age);
 console.log(premium2);
 console.log(online);
@@ -167,6 +167,17 @@ const [
   item1, item2, item3, item4,
 ] = products
 console.log(item1);
+console.log(item2);
+console.log(item3);
+console.log(item4);
+
 const {name: name1, price: price1, quantity: quantity1} = item1
 console.log(name1);
 console.log(price1);
+console.log(quantity1);
+
+const {name: name2, price: price2, quantity: quantity2} = item2
+console.log(name2);
+console.log(price2);
+console.log(quantity2);
+
