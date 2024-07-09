@@ -1,13 +1,15 @@
 "use strict";
 
-//1
+//* 1
 // Напиши функцію-конструктор Account, яка створює об'єкт з властивостями login і email. В prototype функції-конструктора добав метод getInfo(), який виводить в консоль значення полів login і email об'єкта який його викликав.
 
-// class Account {
-//   constructor(login, email) {
-//     this.
-//   }
-// }
+const Account = function({login, email}) {
+   this.login = login
+   this.email = email 
+}
+Account.prototype.getInfo = function() {
+  console.log(`login ${this.login}, email ${this.email}`);
+}
 
 console.log(Account.prototype.getInfo); // function
 
@@ -192,10 +194,10 @@ class Car {
    * який буде працювати з властивістю ціни автомобіля.
    */
   get price() {
-    return this.price
+    return this._price
   }
   set price(pr) {
-    return (this.price = pr)
+    return this._price = pr
   }
 
   /*
@@ -264,6 +266,6 @@ mustang.turnOff();
 Car.getSpecs(mustang);
 // maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000
 
-console.log(mustang.price); // 2000
-mustang.price = 4000;
-console.log(mustang.price); // 4000
+// console.log(mustang.price); // 2000
+// mustang.price = 4000;
+// console.log(mustang.price); // 4000
